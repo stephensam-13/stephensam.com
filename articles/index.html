@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="articleTitle">Loading Article - Learn by Stephen Sam</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Global styles consistent with your main site */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111827; /* bg-gray-900 equivalent */
+      color: #D1D5DB; /* text-gray-100 equivalent */
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Site Header - Matches the 'Learn' landing page header */
+    .site-header {
+      background: #1F2937; /* bg-gray-800 equivalent */
+      color: #fff;
+      padding: 1rem 0;
+      border-bottom: 1px solid #374151;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .site-header h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    .site-header h1 svg {
+      height: 2rem;
+      width: 2rem;
+      margin-right: 0.5rem;
+      color: #A78BFA;
+    }
+    .site-header .back-link {
+      color: #A78BFA;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #A78BFA;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease-in-out;
+    }
+    .site-header .back-link:hover {
+      background-color: #A78BFA;
+      color: #fff;
+    }
+
+    /* Article Content Specific Styles */
+    .article-container {
+      max-width: 800px; /* Optimal width for reading long-form content */
+      margin: 40px auto;
+      padding: 30px;
+      background: #1F2937; /* bg-gray-800 equivalent */
+      border-radius: 0.75rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid #374151; /* subtle border */
+    }
+
+    .article-container h2 {
+      font-size: 2.5rem; /* text-4xl equivalent */
+      font-weight: 700;
+      color: #A78BFA; /* purple-400 for main article heading */
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .article-container h3 {
+      font-size: 1.875rem; /* text-3xl equivalent */
+      font-weight: 600;
+      color: #D1D5DB; /* text-gray-100 */
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #4B5563; /* subtle underline */
+      padding-bottom: 0.5rem;
+    }
+
+    .article-container p {
+      font-size: 1.1rem; /* Slightly larger text for main content */
+      margin-bottom: 1rem;
+      color: #D1D5DB;
+    }
+
+    .article-container ul, .article-container ol {
+      list-style-position: inside;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: #D1D5DB;
+    }
+    .article-container ul li {
+        list-style-type: disc;
+    }
+    .article-container ol li {
+        list-style-type: decimal;
+    }
+    .article-container li {
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+    }
+
+    .article-container a {
+      color: #8B5CF6; /* purple-500 for links within content */
+      text-decoration: underline;
+    }
+    .article-container a:hover {
+      color: #A78BFA;
+    }
+
+    .article-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow for images */
+    }
+
+    .youtube-embed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    .youtube-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    code {
+      background-color: #374151; /* bg-gray-700 */
+      color: #FBBF24; /* text-yellow-300 */
+      padding: 0.2em 0.4em;
+      border-radius: 0.25rem;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background-color: #1F2937; /* bg-gray-800 */
+      color: #FBBF24;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto; /* Enable horizontal scrolling for long code lines */
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+      font-size: 0.9em;
+      margin: 1.5rem 0;
+      border: 1px solid #374151;
+    }
+
+    footer {
+      background: #1F2937;
+      color: #9CA3AF;
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 1px solid #374151;
+      font-size: 0.95rem;
+      margin-top: 40px; /* Space above footer */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .site-header h1 {
+        font-size: 1.5rem;
+      }
+      .site-header .back-link {
+        font-size: 0.875rem;
+        padding: 0.4rem 0.8rem;
+      }
+      .article-container {
+        margin: 20px auto;
+        padding: 20px;
+      }
+      .article-container h2 {
+        font-size: 2rem;
+      }
+      .article-container h3 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+      }
+      .article-container p {
+        font-size: 1rem;
+      }
+      .article-container li {
+          font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="learn.html" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Questions
+      </a>
+      <h1 class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+        Stephen Sam
+      </h1>
+      </div>
+  </header>
+
+  <main>
+    <div class="article-container" id="articleContent">
+      <h2 id="articleHeading">Loading Article...</h2>
+      <p class="text-gray-400 mb-6" id="articlePublishedDate">Published: July 22, 2025</p>
+
+      <p>This is where the introductory paragraph of your detailed article will go. Explain the problem, the context, or what the user will learn.</p>
+
+      <h3>Understanding the Problem</h3>
+      <p>Here you can elaborate on the specific challenge or concept related to the interview question. Use clear, concise language.</p>
+      <img src="https://via.placeholder.com/800x450?text=Screenshot+Example" alt="Descriptive alt text for your screenshot" class="article-image">
+      <p class="text-center text-gray-500 text-sm mt-2 italic">Fig 1: A diagram illustrating the concept or architecture.</p>
+
+      <h3>Step-by-Step Solution / Walkthrough</h3>
+      <p>Provide the core solution or explanation here. Break it down into logical steps. You can use:</p>
+      <ul>
+        <li>Bullet points for key takeaways.</li>
+        <li>Numbered lists for step-by-step instructions.</li>
+      </ul>
+      <pre><code># Example Bash command
+sudo apt update
+sudo apt install docker.io
+
+# Example Python code snippet
+def hello_devops():
+    print("Hello, DevOps!")
+
+hello_devops()</code></pre>
+      <p>Remember to use <code>code</code> tags for inline code and <code>pre</code> <code>code</code> for code blocks for proper formatting.</p>
+
+      <h3>Video Explanation</h3>
+      <p>For a more visual explanation, watch my detailed walkthrough below:</p>
+      <div class="youtube-embed">
+        <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="text-center text-gray-500 text-sm mt-2 italic">Video: A comprehensive guide to [Topic Name].</p>
+
+      <h3>Key Takeaways</h3>
+      <p>Summarize the most important points or best practices discussed in the article.</p>
+      <ul>
+          <li>Point 1: Emphasize a crucial concept.</li>
+          <li>Point 2: Highlight a practical tip.</li>
+          <li>Point 3: Mention a common pitfall to avoid.</li>
+      </ul>
+
+      <p>Feel free to add more sections, diagrams, or external links as needed.</p>
+
+      <p class="text-center mt-8">
+        <a href="https://stephensam.com" target="_blank" class="text-purple-400 hover:underline">Visit Stephen Sam's Main Portfolio →</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Stephen Sam. All rights reserved.
+  </footer>
+
+  <script>
+    // This is simple client-side JS to get the article ID from the URL.
+    // In a real application, you'd fetch content from a backend or a JSON file.
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const articleId = urlParams.get('id'); // Get the 'id' parameter from the URL
+
+      if (articleId) {
+        loadArticleContent(articleId);
+      } else {
+        // Handle case where no ID is provided (e.g., show an error or default)
+        document.getElementById('articleHeading').textContent = "Article Not Found";
+        document.getElementById('articleContent').innerHTML += '<p class="text-center text-red-400 mt-4">No article ID provided in the URL.</p>';
+      }
+    });
+
+    // Mock Article Data (replace with your actual content source)
+    const articles = {
+      'linux-q1': {
+        title: 'Mastering Linux Fundamentals for DevOps Interviews',
+        published: 'July 15, 2025',
+        content: `
+          <p>This article covers the essential Linux commands and concepts every DevOps engineer should know for interviews. We'll start with file system navigation and then move into process management.</p>
+
+          <h3>File System Navigation</h3>
+          <p>Understanding the Linux file system is fundamental. Key commands include:</p>
+          <ul>
+            <li><code>pwd</code>: Print working directory.</li>
+            <li><code>ls</code>: List directory contents.</li>
+            <li><code>cd</code>: Change directory.</li>
+            <li><code>mkdir</code>, <code>rmdir</code>: Create and remove directories.</li>
+          </ul>
+          <img src="https://via.placeholder.com/800x450/2d3748/D1D5DB?text=Linux+File+System+Diagram" alt="Linux file system diagram" class="article-image">
+          <p>For example, to list all files in your home directory:</p>
+          <pre><code>ls -la ~</code></pre>
+
+          <h3>Process Management</h3>
+          <p>Managing processes is crucial for troubleshooting and monitoring. Learn these:</p>
+          <ul>
+            <li><code>ps</code>: Report a snapshot of current processes.</li>
+            <li><code>top</code>: Display Linux processes.</li>
+            <li><code>kill</code>: Terminate a process.</li>
+            <li><code>nohup</code>: Run a command impervious to hangups.</li>
+          </ul>
+          <pre><code>ps aux | grep nginx
+kill 12345</code></pre>
+
+          <h3>Video Walkthrough</h3>
+          <p>Watch my detailed video for a visual guide on these Linux fundamentals:</p>
+          <div class="youtube-embed">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Linux Fundamentals for DevOps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="text-center text-gray-500 text-sm mt-2 italic">Video: Practical demonstration of Linux commands.</p>
+
+          <h3>Networking Basics</h3>
+          <p>Don't forget networking commands:</p>
+          <ul>
+            <li><code>ip addr</code>: Show IP addresses.</li>
+            <li><code>ping</code>: Check network connectivity.</li>
+            <li><code>netstat</code>: Display network connections.</li>
+          </ul>
+          <p>This knowledge forms the bedrock of many DevOps operations.</p>
+        `
+      },
+      'aws-q1': {
+        title: 'AWS Q1 – Understanding EC2 Instances and AMIs',
+        published: 'July 20, 2025',
+        content: `
+          <p>This article dives into Amazon EC2, a core component of AWS, and how to effectively use Amazon Machine Images (AMIs).</p>
+
+          <h3>What is EC2?</h3>
+          <p>Amazon Elastic Compute Cloud (EC2) provides scalable computing capacity in the AWS cloud. You can use EC2 to launch virtual servers, known as instances, and configure them with the operating system and applications you need.</p>
+          <img src="https://via.placeholder.com/800x450/2d3748/D1D5DB?text=AWS+EC2+Dashboard" alt="AWS EC2 Dashboard screenshot" class="article-image">
+
+          <h3>Working with AMIs</h3>
+          <p>An Amazon Machine Image (AMI) provides the information required to launch an instance. You must specify an AMI when you launch an instance. You can launch multiple instances from a single AMI.</p>
+          <pre><code># Example: AWS CLI command to describe AMIs
+aws ec2 describe-images --owners self amazon --query "Images[*].{Name:Name,Id:ImageId}"</code></pre>
+
+          <h3>Video Explanation</h3>
+          <p>Learn more about EC2 and AMIs in this video:</p>
+          <div class="youtube-embed">
+            <iframe src="https://www.youtube.com/embed/YOUR_AWS_EC2_VIDEO_ID" title="AWS EC2 and AMIs Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        `
+      },
+      // ... Add more articles for other questions/topics (e.g., 'docker-q1', 'terraform-q1', etc.)
+    };
+
+    function loadArticleContent(articleId) {
+      const articleData = articles[articleId];
+      const articleContentDiv = document.getElementById('articleContent');
+      const articleHeading = document.getElementById('articleHeading');
+      const articlePublishedDate = document.getElementById('articlePublishedDate');
+      const pageTitle = document.getElementById('articleTitle');
+
+      if (articleData) {
+        articleHeading.textContent = articleData.title;
+        articlePublishedDate.textContent = `Published: ${articleData.published}`;
+        pageTitle.textContent = `${articleData.title} - Learn by Stephen Sam`;
+        
+        // Use insertAdjacentHTML to retain existing structure or replace innerHTML entirely
+        // For simplicity, we'll replace the dynamic parts.
+        // You might want to clear existing static content and append articleData.content
+        const staticContentAfterHeading = document.createElement('div');
+        staticContentAfterHeading.innerHTML = articleData.content; // This will replace the example content
+        
+        // Clear previous dynamic content and append new content
+        const existingParagraphs = articleContentDiv.querySelectorAll('p:not(#articlePublishedDate)');
+        existingParagraphs.forEach(p => p.remove());
+        const existingHeadings = articleContentDiv.querySelectorAll('h3');
+        existingHeadings.forEach(h => h.remove());
+        const existingImages = articleContentDiv.querySelectorAll('img:not(.site-header h1 svg)'); // Exclude header SVG
+        existingImages.forEach(img => img.remove());
+        const existingEmbeds = articleContentDiv.querySelectorAll('.youtube-embed');
+        existingEmbeds.forEach(embed => embed.remove());
+        const existingCodeBlocks = articleContentDiv.querySelectorAll('pre');
+        existingCodeBlocks.forEach(code => code.remove());
+        const existingLists = articleContentDiv.querySelectorAll('ul, ol');
+        existingLists.forEach(list => list.remove());
+
+        articleContentDiv.appendChild(staticContentAfterHeading); // Append the dynamically loaded content
+        
+      } else {
+        articleHeading.textContent = "Article Not Found";
+        articlePublishedDate.textContent = "";
+        pageTitle.textContent = "Article Not Found - Learn by Stephen Sam";
+        articleContentDiv.innerHTML = `
+          <h2 class="text-4xl font-bold text-red-400 mb-4">Oops! Article Not Found.</h2>
+          <p class="text-lg text-gray-300">The article you are looking for does not exist or has been moved.</p>
+          <p class="text-lg text-gray-300 mt-4"><a href="learn.html" class="text-purple-400 hover:underline">Go back to the main questions page</a></p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
