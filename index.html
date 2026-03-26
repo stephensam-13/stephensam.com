@@ -1,810 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stephen Sam – DevOps Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* Custom styles for modern and colorful touches */
-    html { scroll-behavior: smooth; }
-    button, a { transition: all 0.3s ease-in-out; }
-    iframe { border-radius: 0.75rem; /* Slightly more rounded corners */ }
-    #scrollTopBtn:hover { transform: translateY(-5px); /* More pronounced lift */ }
-
-    /* Apply Inter font family */
-    body {
-        font-family: 'Inter', sans-serif;
-    }
-
-    /* Enhanced box shadow for the profile image with a subtle glow */
-    img.profile-img-glow {
-      box-shadow: 0 0 30px rgba(100, 50, 150, 0.4), /* Subtle deep purple glow */
-                  0 0 60px rgba(200, 200, 200, 0.1); /* Faint light gray secondary glow */
-      transition: all 0.4s ease-in-out;
-    }
-    img.profile-img-glow:hover {
-      box-shadow: 0 0 45px rgba(100, 50, 150, 0.6), /* Stronger glow on hover */
-                  0 0 80px rgba(200, 200, 200, 0.2);
-    }
-
-    /* Navbar sticky and active link styles */
-    .navbar-sticky {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(17, 24, 39, 0.9); /* Dark background with transparency */
-      backdrop-filter: blur(8px); /* Frosted glass effect */
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-      animation: slideDown 0.5s ease-out;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); }
-      to { transform: translateY(0); }
-    }
-
-    .nav-link.active {
-      color: #a78bfa; /* A vibrant purple for active links */
-      font-weight: 600;
-      position: relative;
-    }
-    .nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #a78bfa; /* Underline for active links */
-      border-radius: 1px;
-    }
-
-    /* Mobile menu styles */
-    .mobile-menu-closed {
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-    }
-    .mobile-menu-open {
-      transform: translateX(0);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    /* Carousel styles */
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-item {
-      min-width: 100%;
-      box-sizing: border-box;
-      flex-shrink: 0;
-    }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      margin-top: 1.5rem;
-      gap: 0.75rem;
-    }
-
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      background-color: rgba(255, 255, 255, 0.4);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .carousel-dot.active {
-      background-color: #a78bfa; /* Vibrant purple for active dot */
-      box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.5);
-    }
-
-    /* Skill Card Specific Styles */
-    .skill-card {
-      background: linear-gradient(145deg, #2d3748, #1a202c); /* Subtle dark gradient */
-      padding: 1.5rem;
-      border-radius: 0.75rem; /* Rounded corners */
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), /* Stronger, deeper shadow */
-                  0 0 0 1px rgba(139, 92, 246, 0.3); /* Thin purple border on hover */
-      transition: all 0.4s ease-in-out; /* Slower, smoother transition */
-      position: relative;
-      overflow: hidden; /* Ensures pseudo-elements stay within bounds */
-    }
-
-    .skill-card:hover {
-      transform: translateY(-10px) scale(1.02); /* More pronounced lift and slight zoom */
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6),
-                  0 0 0 2px #8b5cf6; /* Thicker, vibrant purple border on hover */
-    }
-
-    /* Background animation for skill cards (HTML magic item) */
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at top left, rgba(139, 92, 246, 0.1), transparent 70%),
-                  radial-gradient(circle at bottom right, rgba(167, 139, 250, 0.1), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      z-index: 0; /* Behind content */
-    }
-
-    .skill-card:hover::before {
-      opacity: 1; /* Show gradient on hover */
-    }
-
-    .skill-card > * {
-      position: relative;
-      z-index: 1; /* Ensure content is above the pseudo-element background */
-    }
-
-    /* Skill Icon Wrapper for visual emphasis */
-    .skill-icon-wrapper {
-      background-color: rgba(139, 92, 246, 0.15); /* Light purple background for icons */
-      border-radius: 50%;
-      padding: 0.75rem;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 15px rgba(139, 92, 246, 0.3); /* Subtle glow for icon */
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Sam | DevOps Engineer & Cloud Specialist</title>
+    <meta name="description" content="Portfolio of Stephen Sam, a passionate DevOps Engineer and Cloud Specialist.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
+<body>
+    <!-- Background Elements -->
+    <div class="bg-gradient-1"></div>
+    <div class="bg-gradient-2"></div>
 
-  <button id="scrollTopBtn" class="fixed bottom-6 right-6 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75 z-50 transition-all duration-300 ease-in-out">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-    </svg>
-  </button>
-
-  <nav id="navbar" class="fixed w-full z-10 top-0 transition-all duration-300 ease-in-out py-4">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <a href="#hero" class="text-white text-3xl font-extrabold flex items-center">
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 16l-4-4m0 0l-4 4m4-4v12m5.5-4a5.5 5.5 0 00-11 0H4a4 4 0 01-.88-7.902A6 6 0 0112 4a6 6 0 016 6c0 1.223-.37 2.356-1 3.296" />
-  </svg>
-  Stephen Sam
-</a>
-
-      <div class="hidden md:flex space-x-8">
-        <a href="#about" class="nav-link text-gray-300 hover:text-purple-400 text-lg font-medium">About</a>
-        <a href="#skills" class="nav-link text-gray-300 hover:text-purple-400 text-lg font-medium">Skills</a>
-        <a href="#experience" class="nav-link text-gray-300 hover:text-purple-400 text-lg font-medium">Experience</a>
-        <a href="#projects" class="nav-link text-gray-300 hover:text-purple-400 text-lg font-medium">Projects</a>
-        <a href="#certifications" class="nav-link text-gray-300 hover:text-purple-400 text-lg font-medium">Certifications</a>
-        <a href="#contact" class="nav-link text-gray-300 hover:text-purple-400 text-lg font-medium">Contact</a>
-      </div>
-
-      <div class="md:hidden">
-        <button id="mobileMenuBtn" class="text-white focus:outline-none">
-          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <div id="mobileMenu" class="fixed inset-y-0 right-0 w-64 bg-gray-800 p-6 shadow-lg transform mobile-menu-closed md:hidden z-50">
-    <div class="flex justify-end mb-8">
-      <button id="closeMobileMenuBtn" class="text-white focus:outline-none">
-        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
-    <nav class="flex flex-col space-y-6">
-      <a href="#about" class="text-gray-300 hover:text-purple-400 text-xl font-medium">About</a>
-      <a href="#skills" class="text-gray-300 hover:text-purple-400 text-xl font-medium">Skills</a>
-      <a href="#experience" class="text-gray-300 hover:text-purple-400 text-xl font-medium">Experience</a>
-      <a href="#projects" class="text-gray-300 hover:text-purple-400 text-xl font-medium">Projects</a>
-      <a href="#certifications" class="text-gray-300 hover:text-purple-400 text-xl font-medium">Certifications</a>
-      <a href="#contact" class="text-gray-300 hover:text-purple-400 text-xl font-medium">Contact</a>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="#hero" class="logo">S<span class="highlight">.</span>Sam</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </nav>
-  </div>
 
-
-  <section id="hero" class="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
-    <div class="absolute inset-0 z-0 opacity-20">
-      <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-      <div class="absolute top-1/2 right-1/4 w-48 h-48 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-      <div class="absolute bottom-1/4 left-1/3 w-48 h-48 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-    </div>
-    <div class="container mx-auto px-6 text-center z-10">
-      <img src="images/profile.png" alt="Stephen Sam" class="profile-img-glow w-40 h-40 rounded-full mx-auto mb-6 object-cover border-4 border-purple-600 shadow-lg">
-      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-up">Stephen Sam</h1>
-      <p class="text-xl md:text-3xl text-gray-300 mb-8 animate-fade-in-up animation-delay-500">
-        DevOps Engineer | Cloud Enthusiast | Automation Specialist
-      </p>
-      <div class="space-x-4 animate-fade-in-up animation-delay-1000">
-        <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
-          Contact Me
-        </a>
-        <a href="files/Stephen_Sam_SeniorCloud&Devops-Engineer.pdf" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
-          View CV
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="py-16 md:py-24 bg-gray-800 text-gray-100">
-    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-      <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
-        <h2 class="text-4xl font-bold text-white mb-6 relative pb-4">
-          About Me
-          <span class="absolute bottom-0 left-0 w-24 h-1 bg-purple-600 rounded"></span>
-        </h2>
-        <p class="text-lg text-gray-300 leading-relaxed mb-4">
-          Hello! I'm Stephen Sam, a passionate DevOps Engineer with a knack for streamlining development workflows and building robust, scalable infrastructure. My journey in tech has been driven by a fascination with automation, cloud computing, and continuous delivery.
-        </p>
-        <p class="text-lg text-gray-300 leading-relaxed mb-4">
-          With a strong foundation in both Linux and devops, I specialize in bridging the gap between Dev and Ops teams, fostering a culture of collaboration and efficiency. I have hands-on experience with a wide array of tools and technologies, from cloud platforms like AWS and Azure to containerization with Docker and Kubernetes, and automation with Terraform and Ansible.
-        </p>
-        <p class="text-lg text-gray-300 leading-relaxed">
-          My goal is to leverage my expertise to contribute to projects that push the boundaries of technology, always seeking to optimize performance, enhance security, and ensure seamless deployments.
-        </p>
-      </div>
-      <div class="md:w-1/2">
-        <img src="images/about-image.jpeg" alt="Stephen Sam working" class="rounded-lg shadow-xl border-4 border-purple-700 transform hover:scale-105 transition-transform duration-300">
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="py-16 md:py-24 bg-gray-800 text-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold text-white mb-12 relative pb-4">
-        My Skills
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600 rounded"></span>
-      </h2>
-      <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">Cloud Platforms</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>AWS (EC2, S3, Lambda, VPC, RDS, EKS, SES, SNS, Elatic Cache)</li>
-            <li>Microsoft Azure (VMs, Blob Storage, Azure DevOps,App Service,Redis Cache, Front Door & CDN)</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">CI/CD & Automation</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>Jenkins</li>
-            <li>GitLab CI/CD</li>
-            <li>GitHub Actions</li>
-            <li>Azure Pipelines</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">Containerization & Orchestration</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>Docker</li>
-            <li>Kubernetes (K8s)</li>
-            <li>Amazon EKS</li>
-            <li>Helm</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">Infrastructure as Code (IaC)</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>Terraform</li>
-            <li>Ansible</li>
-            <li>CloudFormation</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">Scripting & Programming</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>Bash</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 2v-6m2 9H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">Monitoring & Logging</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>Prometheus</li>
-            <li>Grafana</li>
-            <li>ELK Stack (Elasticsearch, Logstash, Kibana)</li>
-            <li>CloudWatch</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">Version Control</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>GitLab</li>
-            <li>Bitbucket</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon-wrapper">
-            <svg class="h-10 w-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.007 12.007 0 002.944 12c0 2.89.578 5.618 1.607 8.162a11.955 11.955 0 018.618 3.041 12.007 12.007 0 008.162-1.607c2.544-1.029 4.22-3.41 4.22-6.195a12.007 12.007 0 00-3.04-8.618z"></path></svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-purple-400 mb-3">Networking & Security</h3>
-          <ul class="list-disc list-inside text-left text-gray-300">
-            <li>TCP/IP</li>
-            <li>DNS</li>
-            <li>Firewalls</li>
-            <li>Security Best Practices</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<section id="experience" class="py-16 md:py-24 bg-gray-900 text-gray-100">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold text-white mb-12 relative pb-4">
-      Experience
-      <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600 rounded"></span>
-    </h2>
-
-    <div class="relative max-w-3xl mx-auto">
-      <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gray-700 h-full"></div>
-
-
-      <!-- Experience Item 2 -->
-      <div class="mb-12 flex justify-between items-center w-full">
-        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-          <h3 class="font-bold text-xl text-purple-400">Grozeo International Pvt Ltd</h3>
-          <p class="text-sm text-gray-400">Trivandrum</p>
-          <p class="text-sm text-gray-400"> Cloud & DevOps Engineer</p>
-          <p class="text-sm text-gray-500">Jul 2022 – Present</p>
-        </div>
-        <div class="z-10 flex items-center order-1 bg-purple-600 shadow-xl w-8 h-8 rounded-full">
-          <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
-        </div>
-        <div class="order-1 w-5/12"></div>
-      </div>
-
-      <!-- Experience Item 3 -->
-      <div class="mb-12 flex justify-between items-center w-full">
-        <div class="order-1 w-5/12"></div>
-        <div class="z-10 flex items-center order-1 bg-purple-600 shadow-xl w-8 h-8 rounded-full">
-          <h1 class="mx-auto font-semibold text-lg text-white">2</h1>
-        </div>
-        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-          <h3 class="font-bold text-xl text-purple-400">Sherji Tech Pvt LTD</h3>
-          <p class="text-sm text-gray-400">Trivandrum</p>
-          <p class="text-sm text-gray-400">Senior System Administrator</p>
-          <p class="text-sm text-gray-500">March 2020 – June 2022</p>
-        </div>
-      </div>
-
-      <!-- Experience Item 4 -->
-      <div class="mb-12 flex justify-between items-center w-full">
-        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 text-left">
-          <h3 class="font-bold text-xl text-purple-400">IntegralHost</h3>
-          <p class="text-sm text-gray-400">Kochi</p>
-          <p class="text-sm text-gray-400">Jr. Linux Administrator</p>
-          <p class="text-sm text-gray-500">June 2017 – May 2018</p>
-        </div>
-        <div class="z-10 flex items-center order-1 bg-purple-600 shadow-xl w-8 h-8 rounded-full">
-          <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
-        </div>
-        <div class="order-1 w-5/12"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <section id="projects" class="py-16 md:py-24 bg-gray-800 text-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold text-white mb-12 relative pb-4">
-        My Latest Projects
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600 rounded"></span>
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-<div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-<img src="images/html-hosting-s3-acm-cloudfront.webp" alt="Host a Static HTML Site on S3" class="w-full object-contain max-h-60 mx-auto">
-  <div class="p-6">
-    <h3 class="text-2xl font-semibold text-purple-400 mb-2">Deploy HTML page Using CloudFront + ACM + Terraform</h3>
-    <p class="text-gray-300 mb-4">The full end-to-end setup: S3, SSL, CDN, Terraform, and DNS — with real-world gotchas I faced and how to solve them.</p>
-    <div class="flex flex-wrap justify-center gap-2 mb-4">
-      <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">Aws S3</span>
-      <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">CloudFront</span>
-      <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">Terraform</span>
-    </div>
-    <div class="flex justify-center gap-4">
-      <a href="https://medium.com/@stephensam13/host-a-static-html-site-on-s3-with-free-ssl-using-cloudfront-acm-terraform-fe303e660d85" target="_blank" class="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center">
-        Read Full Article in Medium.com
-      </a>
- 
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0l-7 7m7-7v6"></path>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-        <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-        <img src="images/doker-flask-app.webp" alt="Host a Static HTML Site on S3" class="w-full object-contain max-h-60 mx-auto">
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold text-purple-400 mb-2">Deploy Dockerized Flask App | Step by Step Guide</h3>
-            <p class="text-gray-300 mb-4">A beginner’s journey into Docker, Flask, and GitHub with Step by Step guide</p>
-            <div class="flex flex-wrap justify-center gap-2 mb-4">
-              <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">Docker</span>
-              <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">Flask</span>
-              <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">Github</span>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+            <div class="hero-content scroll-reveal">
+                <p class="greeting">Hello World, I'm</p>
+                <h1 class="name">Stephen Sam</h1>
+                <h2 class="title"><span class="typing-text"></span><span class="cursor">&nbsp;</span></h2>
+                <p class="tagline">Bridging the gap between Dev and Ops to build robust, scalable, and automated cloud infrastructure.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Contact Me</a>
+                    <a href="https://stephensam.com/files/Stephen_Sam_SeniorCloud&Devops-Engineer.pdf" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
             </div>
-            <div class="flex justify-center gap-4">
-              <a href="https://medium.com/@stephensam13/my-first-dockerized-flask-app-from-zero-to-container-c14913a738e8" target="_blank" class="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center">
-                Read Full Article in Medium.com
-
-              </a>
-
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0l-7 7m7-7v6"></path>
-                </svg>
-              </a>
+            <div class="hero-image scroll-reveal">
+                <div class="glow-circle"></div>
+                <div class="profile-frame">
+                    <img src="https://stephensam.com/images/about-image.jpeg" alt="Stephen Sam" class="profile-pic">
+                </div>
+                <div class="floating-icon icon-1"><i class="fab fa-aws"></i></div>
+                <div class="floating-icon icon-2"><i class="fab fa-docker"></i></div>
+                <div class="floating-icon icon-3"><i class="fas fa-dharmachakra"></i></div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-        <img src="images/html-azstorage-terrafomr.webp" alt="Host a Static HTML Site on S3" class="w-full object-contain max-h-60 mx-auto">
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold text-purple-400 mb-2">Deploy Your HTML page to Azure storage with Terraform</h3>
-            <p class="text-gray-300 mb-4">A Step-by-Step Guide to deploy a basic html page to azure storage with usng Terrafomr IAC </p>
-            <div class="flex flex-wrap justify-center gap-2 mb-4">
-              <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">terraform</span>
-              <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">azure storage</span>
-              <span class="bg-gray-600 text-gray-200 text-sm px-3 py-1 rounded-full">html</span>
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="section-header scroll-reveal">
+                <h2>About Me<span class="highlight">.</span></h2>
             </div>
-            <div class="flex justify-center gap-4">
-              <a href="https://medium.com/@stephensam13/deploy-your-html-portfolio-to-azure-with-terraform-a-step-by-step-guide-efc945b2384e" target="_blank" class="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center">
-                Read Full Article in Medium.com
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0l-7 7m7-7v6"></path>
-                </svg>
-              </a>
-
-
-              </a>
+            <div class="about-content scroll-reveal glass-card p-xl">
+                <p>Hello! I'm Stephen Sam, a passionate DevOps Engineer with a knack for streamlining development workflows and building robust, scalable infrastructure. My journey in tech has been driven by a fascination with automation, cloud computing, and continuous delivery.</p>
+                <p>With a strong foundation in Linux and DevOps, I specialize in fostering a culture of collaboration and efficiency. I have hands-on experience with cloud platforms like AWS and Azure, container orchestration with Kubernetes, and Infrastructure as Code with Terraform.</p>
+                <p>My goal is to leverage my expertise to optimize performance, enhance security, and ensure seamless deployments that scale real-world impact.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-<section id="certifications" class="py-16 md:py-24 bg-gray-900 text-gray-100">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold text-white mb-12 relative pb-4">
-      Certifications
-      <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600 rounded"></span>
-    </h2>
-
-    <div class="carousel-container relative max-w-4xl mx-auto overflow-hidden">
-      <div id="carousel-inner" class="carousel-inner flex transition-transform duration-500 ease-in-out w-full">
-        
-        <!-- Slide 1 -->
-        <div class="carousel-item flex-shrink-0 w-full p-4">
-          <div class="bg-gray-800 p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-            <img src="images/rhcsa.webp" alt="RHCSA" class="w-32 h-32 md:w-48 md:h-48 object-contain mb-4 md:mb-0">
-            <div class="text-center md:text-left">
-              <h3 class="text-2xl font-semibold text-purple-400 mb-2">Red Hat Certified System Administrator (RHCSA)</h3>
-              <p class="text-gray-300">Credential ID: 170-073-266</p>
-              <p class="text-gray-400 text-sm mt-1">Issued: January 2022 (Expired)</p>
-
+        <!-- Skills Section -->
+        <section id="skills" class="skills section">
+            <div class="section-header scroll-reveal">
+                <h2>Technical Skills<span class="highlight">.</span></h2>
             </div>
-          </div>
-        </div>
+            <div class="skills-grid">
+                <!-- Skill Category 1 -->
+                <div class="premium-skill-card scroll-reveal">
+                    <div class="skill-icon-wrapper"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS (EC2, EKS, RDS, S3)</span>
+                        <span class="skill-tag">Azure</span>
+                    </div>
+                </div>
+                <!-- Skill Category 2 -->
+                <div class="premium-skill-card scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="skill-icon-wrapper"><i class="fas fa-sync"></i></div>
+                    <h3>CI/CD & Automation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitLab CI</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Azure Pipelines</span>
+                    </div>
+                </div>
+                <!-- Skill Category 3 -->
+                <div class="premium-skill-card scroll-reveal" style="transition-delay: 200ms;">
+                    <div class="skill-icon-wrapper"><i class="fab fa-docker"></i></div>
+                    <h3>Containers & Orchestration</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes (K8s)</span>
+                        <span class="skill-tag">Amazon EKS</span>
+                        <span class="skill-tag">Helm</span>
+                    </div>
+                </div>
+                <!-- Skill Category 4 -->
+                <div class="premium-skill-card scroll-reveal" style="transition-delay: 300ms;">
+                    <div class="skill-icon-wrapper"><i class="fas fa-code"></i></div>
+                    <h3>Infrastructure as Code</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">CloudFormation</span>
+                    </div>
+                </div>
+                <!-- Skill Category 5 -->
+                <div class="premium-skill-card scroll-reveal" style="transition-delay: 400ms;">
+                    <div class="skill-icon-wrapper"><i class="fas fa-chart-line"></i></div>
+                    <h3>Monitoring & Logging</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">ELK Stack</span>
+                        <span class="skill-tag">CloudWatch</span>
+                    </div>
+                </div>
+                <!-- Skill Category 6 -->
+                <div class="premium-skill-card scroll-reveal" style="transition-delay: 500ms;">
+                    <div class="skill-icon-wrapper"><i class="fas fa-terminal"></i></div>
+                    <h3>Scripting & System</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Linux Admin</span>
+                        <span class="skill-tag">Networking</span>
+                        <span class="skill-tag">Security</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Experience Section -->
+        <section id="experience" class="experience section">
+            <div class="section-header scroll-reveal">
+                <h2>Experience<span class="highlight">.</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">Jan 2026 – Present (Kochi, Kerala &middot; Remote)</div>
+                        <h3>Level 3 AWS Infrastructure Support Engineer</h3>
+                        <h4>Electronikmedia (EM)</h4>
+                        <p>Providing advanced L3 support for AWS infrastructure, driving DevOps practices, and optimizing cloud environments for performance and reliability.</p>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">Jul 2022 – Jan 2026 (Thiruvananthapuram, Kerala &middot; Hybrid)</div>
+                        <h3>Senior Cloud & DevOps Engineer</h3>
+                        <h4>Grozeo India</h4>
+                        <p>Managed cloud infrastructure across AWS and Azure for development, UAT, and production environments, ensuring high availability and scalability.</p>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal" style="transition-delay: 200ms;">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">Mar 2020 – Jun 2022 (Thiruvananthapuram, Kerala &middot; On-site)</div>
+                        <h3>Senior System Administrator</h3>
+                        <h4>Sherji Technologies Pvt Ltd</h4>
+                        <p>Managed and maintained Linux-based servers (CentOS, Ubuntu), including LAMP stacks and custom web hosting environments, ensuring high uptime and performance.</p>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal" style="transition-delay: 300ms;">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">Jun 2017 – May 2018 (Kochi, Kerala &middot; Remote)</div>
+                        <h3>Linux Administrator</h3>
+                        <h4>Integralhost</h4>
+                        <p>Delivered L1 support to clients for VPS and shared hosting environments. Assisted with WHM/cPanel troubleshooting, DNS setup, and SSL configurations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Slide 2 - AZ-104 (Pursuing - greyed out style) -->
-<div class="carousel-item flex-shrink-0 w-full p-4">
-  <div class="bg-gray-800 p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 opacity-60 pointer-events-none">
-    <img src="images/azure-administrator-associate-1.webp" alt="AZ-104" class="w-32 h-32 md:w-48 md:h-48 object-contain mb-4 md:mb-0 grayscale">
-    <div class="text-center md:text-left">
-      <h3 class="text-2xl font-semibold text-gray-400 mb-2">Microsoft Certified: Azure Administrator Associate (AZ-104)</h3>
-      <p class="text-gray-500 italic">(Pursuing)</p>
-      <span class="text-sm text-gray-500 mt-3 inline-block">Credential not yet issued</span>
-    </div>
-  </div>
-</div>
+        <!-- Projects & Certs Section -->
+        <section id="projects" class="projects section">
+            <div class="section-header scroll-reveal" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+                <h2 style="margin: 0;">Featured Articles<span class="highlight">.</span></h2>
+                <a href="https://medium.com/@stephensam13" target="_blank" class="section-link">View Medium <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="projects-grid">
+                <a href="https://medium.com/@stephensam13/host-a-static-html-site-on-s3-with-free-ssl-using-cloudfront-acm-terraform-fe303e660d85" target="_blank" class="project-card glass-card scroll-reveal">
+                    <div class="card-inner">
+                        <div class="project-icon"><i class="fab fa-medium"></i></div>
+                        <h3>CloudFront + ACM + Terraform</h3>
+                        <p>End-to-end setup for hosting a static HTML site securely on AWS S3 with CDN and SSL using IaC.</p>
+                        <span class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://medium.com/@stephensam13/my-first-dockerized-flask-app-from-zero-to-container-c14913a738e8" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="card-inner">
+                        <div class="project-icon"><i class="fab fa-medium"></i></div>
+                        <h3>Deploy Dockerized Flask App</h3>
+                        <p>A beginner’s step-by-step journey from zero to a fully containerized Flask application using Docker.</p>
+                        <span class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://medium.com/@stephensam13/deploy-your-html-portfolio-to-azure-with-terraform-a-step-by-step-guide-efc945b2384e" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 200ms;">
+                    <div class="card-inner">
+                        <div class="project-icon"><i class="fab fa-medium"></i></div>
+                        <h3>Deploy to Azure with Terraform</h3>
+                        <p>A comprehensive guide to automating the deployment of an HTML portfolio to Azure Storage via Terraform.</p>
+                        <span class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
 
+            <div class="section-header scroll-reveal mt-xl" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+                <h2 style="margin: 0;">YouTube Content<span class="highlight">.</span></h2>
+                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="section-link">Stephen Sam DevOps Malayalam <i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="projects-grid">
+                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="project-card glass-card scroll-reveal">
+                    <div class="card-inner">
+                        <div class="project-icon" style="color: #ff0000;"><i class="fab fa-youtube"></i></div>
+                        <h3>Observability & Monitoring</h3>
+                        <p>Zero to Hero in Malayalam. A comprehensive guide to modern observability stacks.</p>
+                        <span class="read-more">Watch on YouTube <i class="fas fa-play"></i></span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="card-inner">
+                        <div class="project-icon" style="color: #ff0000;"><i class="fab fa-youtube"></i></div>
+                        <h3>Terraform</h3>
+                        <p>Zero to Hero in Malayalam. Learn Infrastructure as Code from scratch to advanced.</p>
+                        <span class="read-more">Watch on YouTube <i class="fas fa-play"></i></span>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 200ms;">
+                    <div class="card-inner">
+                        <div class="project-icon" style="color: #ff0000;"><i class="fab fa-youtube"></i></div>
+                        <h3>MLOPS</h3>
+                        <p>Zero to Hero in Malayalam. Dive into Machine Learning Operations.</p>
+                        <span class="read-more">Watch on YouTube <i class="fas fa-play"></i></span>
+                    </div>
+                </a>
+            </div>
 
-      </div>
+            <div class="certs-container scroll-reveal mt-xl">
+                <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Certifications</h3>
+                <div class="tags cert-tags">
+                    <span class="tag cert"><i class="fas fa-certificate"></i> Red Hat Certified System Administrator (RHCSA)</span>
+                    <span class="tag cert pursuing"><i class="fas fa-spinner fa-spin"></i> Microsoft Certified: Azure Administrator Associate (Pursuing)</span>
+                </div>
+            </div>
+        </section>
 
-      <!-- Navigation Arrows -->
-      <button onclick="moveCarousel(-1)" class="absolute top-1/2 left-0 transform -translate-y-1/2 z-20 bg-gray-700 p-2 rounded-full text-white shadow-lg hover:bg-gray-600 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button onclick="moveCarousel(1)" class="absolute top-1/2 right-0 transform -translate-y-1/2 z-20 bg-gray-700 p-2 rounded-full text-white shadow-lg hover:bg-gray-600 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-  </div>
-</section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="section-header scroll-reveal">
+                <h2>Get In Touch<span class="highlight">.</span></h2>
+            </div>
+            <div class="contact-content glass-card scroll-reveal">
+                <p>Have a project in mind, a question, or just want to connect? My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                <div class="social-links mt-l">
+                    <a href="mailto:stephensam13@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email Me</a>
+                    <a href="https://www.linkedin.com/in/stephen-sam-a47949376/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="https://github.com/stephensam-13" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<!-- Carousel JavaScript -->
-<script>
-  let currentIndex = 0;
-  const items = document.querySelectorAll('.carousel-item');
-  const totalItems = items.length;
+    <footer class="glass mt-xl">
+        <p>&copy; 2026 Stephen Sam. Designed & Built with &#10084; using HTML, CSS & Vanilla JS.</p>
+    </footer>
 
-  function updateCarousel() {
-    const offset = -currentIndex * 100;
-    document.getElementById('carousel-inner').style.transform = `translateX(${offset}%)`;
-  }
-
-  function moveCarousel(direction) {
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = totalItems - 1;
-    if (currentIndex >= totalItems) currentIndex = 0;
-    updateCarousel();
-  }
-
-  // Swipe support for mobile
-  let touchStartX = 0;
-  const carouselInner = document.getElementById('carousel-inner');
-  carouselInner.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-  carouselInner.addEventListener('touchend', (e) => {
-    const deltaX = e.changedTouches[0].screenX - touchStartX;
-    if (deltaX > 50) moveCarousel(-1);
-    if (deltaX < -50) moveCarousel(1);
-  });
-</script>
-
-
-  <section id="contact" class="py-16 md:py-24 bg-gray-800 text-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold text-white mb-12 relative pb-4">
-        Get in Touch
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-purple-600 rounded"></span>
-      </h2>
-      <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-        Have a project in mind, a question, or just want to connect? Feel free to reach out!
-      </p>
-
-      <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
-        <div class="flex items-center space-x-4 bg-gray-700 p-6 rounded-lg shadow-xl hover:bg-gray-600 transition duration-300 ease-in-out">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-4 4v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7"></path>
-          </svg>
-          <div>
-            <h3 class="text-xl font-semibold text-white">Email Me</h3>
-            <a href="mailto:stephensam13@gmail.com" class="text-purple-400 hover:underline">stephensam13@gmail.com</a>
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-4 bg-gray-700 p-6 rounded-lg shadow-xl hover:bg-gray-600 transition duration-300 ease-in-out">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-10 w-10 text-purple-400">
-            <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.98v16h4.98v-10.935c0-2.316 2.022-3.065 2.022-3.065s1.493-.311 1.493 2.115v11.915h5v-11.915c0-5.786-3.264-7.519-6.002-7.519z"></path>
-          </svg>
-          <div>
-            <h3 class="text-xl font-semibold text-white">Connect on LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/stephen-sam-a47949376/" target="_blank" class="text-purple-400 hover:underline">Stephen Sam</a>
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-4 bg-gray-700 p-6 rounded-lg shadow-xl hover:bg-gray-600 transition duration-300 ease-in-out">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-10 w-10 text-purple-400">
-            <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.799 8.205 11.385.6.11.82-.26.82-.577v-2.203c-3.336.724-4.043-1.609-4.043-1.609-.546-1.383-1.332-1.756-1.332-1.756-1.088-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.492 1.002.109-.777.419-1.305.762-1.608-2.665-.3-5.467-1.332-5.467-5.932 0-1.31.465-2.381 1.236-3.221-.124-.3-.536-1.523.117-3.176 0 0 1.007-.322 3.3.723A11.08 11.08 0 0112 5.097c1.02.007 2.04.148 3.003.438 2.29-1.045 3.297-.723 3.297-.723.653 1.653.24 2.876.117 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.808 5.625-5.475 5.922.43.37.82.934.82 1.884v2.793c0 .317.218.687.828.575C20.565 21.795 24 17.3 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd"></path>
-          </svg>
-          <div>
-            <h3 class="text-xl font-semibold text-white">View My GitHub</h3>
-            <a href="https://github.com/stephensam-13" target="_blank" class="text-purple-400 hover:underline">stephensam</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-gray-900 py-8 border-t border-gray-700 text-gray-400 text-center text-sm">
-    <div class="container mx-auto px-6">
-      <p>&copy; 2025 Stephen Sam. All rights reserved.</p>
-      <p class="mt-2">Built with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
-    </div>
-  </footer>
-
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Navbar sticky effect and active link highlighting
-    const navbar = document.getElementById('navbar');
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-    function highlightNavLink() {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('navbar-sticky');
-      } else {
-        navbar.classList.remove('navbar-sticky');
-      }
-
-      // Show/hide scroll to top button
-      if (window.scrollY > 300) {
-        scrollTopBtn.classList.remove('hidden');
-        scrollTopBtn.classList.add('block');
-      } else {
-        scrollTopBtn.classList.add('hidden');
-        scrollTopBtn.classList.remove('block');
-      }
-
-      highlightNavLink();
-    });
-
-    // Initial highlight on load
-    document.addEventListener('DOMContentLoaded', highlightNavLink);
-
-
-    // Scroll to top button functionality
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('mobile-menu-closed');
-      mobileMenu.classList.add('mobile-menu-open');
-      document.body.classList.add('overflow-hidden'); // Prevent scrolling when menu is open
-    });
-
-    closeMobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('mobile-menu-open');
-      mobileMenu.classList.add('mobile-menu-closed');
-      document.body.classList.remove('overflow-hidden');
-    });
-
-    // Carousel functionality
-    const carousel = document.getElementById('carousel-inner');
-    const items = document.querySelectorAll('.carousel-item');
-    let currentIndex = 0;
-    let itemsPerPage = 1; // Default for mobile
-    let totalPages = items.length;
-
-    function updateCarouselConfig() {
-      // Adjust itemsPerPage based on screen size
-      if (window.innerWidth >= 1024) { // Large screens (lg)
-        itemsPerPage = 3;
-      } else if (window.innerWidth >= 768) { // Medium screens (md)
-        itemsPerPage = 2;
-      } else { // Small screens (sm) and below
-        itemsPerPage = 1;
-      }
-      totalPages = Math.ceil(items.length / itemsPerPage);
-      showSlide(0); // Reset to first slide when config changes
-      renderDots(); // Re-render dots based on new totalPages
-    }
-
-    function showSlide(index) {
-      if (index < 0) {
-        currentIndex = totalPages - 1;
-      } else if (index >= totalPages) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
-      const offset = -currentIndex * (100 / itemsPerPage);
-      carousel.style.transform = `translateX(${offset}%)`;
-      updateDots();
-    }
-
-    function moveCarousel(direction) {
-      showSlide(currentIndex + direction);
-    }
-
-    function renderDots() {
-      const dotsContainer = document.getElementById('carousel-dots');
-      dotsContainer.innerHTML = ''; // Clear existing dots
-      for (let i = 0; i < totalPages; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('carousel-dot');
-        if (i === currentIndex) {
-          dot.classList.add('active');
-        }
-        dot.onclick = () => showSlide(i);
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      const dots = document.querySelectorAll('.carousel-dot');
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }
-
-    // Initialize carousel on load and resize
-    window.addEventListener('load', updateCarouselConfig);
-    window.addEventListener('resize', updateCarouselConfig);
-
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('mobileMenu').classList.remove('mobile-menu-open');
-        document.getElementById('mobileMenu').classList.add('mobile-menu-closed');
-        document.body.classList.remove('overflow-hidden');
-      });
-    });
-  </script>
+    <!-- Script -->
+    <script src="script.js"></script>
 </body>
 </html>
