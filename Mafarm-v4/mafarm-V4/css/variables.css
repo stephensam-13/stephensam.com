@@ -1,0 +1,14 @@
+
+:root {
+    --qb-primary: #538c17;
+    --qb-primary-light: #75ba49;
+    --qb-secondary: #828282;
+    --qb-preloader:#4b7e15;
+    --qb-primary-dark:#427012;
+    --qb-over-opacity: rgba(83, 140, 23, 0.75);
+    --qb-footer: #162704;
+    --qb-footer-info:#356602;
+    --qb-footer-info-color:#356602;
+    --qb-footer-copywrite:#101c03;
+    --qb-title-span:#ba9e49;
+}
