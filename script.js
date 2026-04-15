@@ -1,5 +1,5 @@
 // --- Typing Effect ---
-const words = ["Site Reliability Engineer.", "DevOps Engineer.", "Cloud Enthusiast.", "Content Creator."];
+const words = ["Site Reliability & Devops Engineer.", "Content Creator", "Technical Educator"];
 let i = 0;
 let timer;
 const typingText = document.querySelector('.typing-text');
