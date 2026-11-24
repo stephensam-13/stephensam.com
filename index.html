@@ -3,288 +3,769 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stephen Sam | DevOps Engineer & Cloud Specialist</title>
-    <meta name="description" content="Portfolio of Stephen Sam, a passionate DevOps Engineer and Cloud Specialist.">
-    <!-- Google Fonts -->
+    <title>Stephen Sam | Senior Cloud, DevOps &amp; Site Reliability Engineer</title>
+    <meta name="description" content="Stephen Sam — Senior Cloud, DevOps & Site Reliability Engineer. Passionate about AWS, Azure, Kubernetes, Terraform, Observability, and sharing modern DevOps insights on YouTube & Medium.">
+    <!-- Custom SS Monogram SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2310b981'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23060911'/%3E%3Crect x='2' y='2' width='60' height='60' rx='14' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Space Grotesk, sans-serif' font-weight='800' font-size='28' fill='url(%23g)'%3ESS%3C/text%3E%3C/svg%3E">
+    <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="bg-gradient-1"></div>
-    <div class="bg-gradient-2"></div>
+    <!-- Subtle Grid & Ambient Glows -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="ambient-glow glow-emerald" aria-hidden="true"></div>
+    <div class="ambient-glow glow-cyan" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav class="navbar glass">
-        <div class="nav-container">
-            <a href="#hero" class="logo">S<span class="highlight">.</span>Sam</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Custom SS Monogram + StephenSam Wordmark Logo -->
+            <a href="#hero" class="brand-logo" aria-label="Stephen Sam Home">
+                <div class="ss-emblem" aria-hidden="true">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="ssGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#10b981" />
+                                <stop offset="100%" stop-color="#06b6d4" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Hexagonal Cloud/Node Outer Frame -->
+                        <rect x="1.5" y="1.5" width="41" height="41" rx="11" fill="#0b1120" stroke="url(#ssGrad)" stroke-width="2" />
+                        <!-- Stylized Interlocked SS Monogram -->
+                        <path d="M19.5 14H13.5C11.8431 14 10.5 15.3431 10.5 17V18.5C10.5 20.1569 11.8431 21.5 13.5 21.5H17.5C19.1569 21.5 20.5 22.8431 20.5 24.5V27C20.5 28.6569 19.1569 30 17.5 30H10.5" stroke="#10b981" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M33.5 14H26.5C24.8431 14 23.5 15.3431 23.5 17V19.5C23.5 21.1569 24.8431 22.5 26.5 22.5H30.5C32.1569 22.5 33.5 23.8431 33.5 25.5V27C33.5 28.6569 32.1569 30 30.5 30H24.5" stroke="#06b6d4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Terminal Status Dot -->
+                        <circle cx="36.5" cy="7.5" r="2" fill="#10b981" />
+                    </svg>
+                </div>
+                <div class="brand-wordmark">
+                    <span class="wordmark-main">Stephen<span class="wordmark-accent">Sam</span></span>
+                    <span class="wordmark-sub">CLOUD · DEVOPS · SRE</span>
+                </div>
+            </a>
+
+            <nav aria-label="Primary Navigation">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about"><span class="nav-num">01.</span>About</a></li>
+                    <li><a href="#youtube"><span class="nav-num">02.</span>YouTube &amp; Articles</a></li>
+                    <li><a href="#experience"><span class="nav-num">03.</span>Experience</a></li>
+                    <li><a href="#skills"><span class="nav-num">04.</span>Tech Stack</a></li>
+                    <li><a href="#contact"><span class="nav-num">05.</span>Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://www.youtube.com/@stephen.sam13" target="_blank" rel="noopener" class="btn-yt-nav">
+                    <i class="fab fa-youtube"></i> <span>YouTube</span>
+                </a>
+                <a href="files/Stephen_Sam_SeniorCloud&Devops-Engineer.pdf" target="_blank" rel="noopener" class="btn btn-terminal btn-sm">
+                    <i class="fas fa-file-arrow-down"></i> <span>Resume</span>
+                </a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
+        <!-- HERO SECTION -->
         <section id="hero" class="hero section">
-            <div class="hero-content scroll-reveal">
-                <p class="greeting">Hello World, I'm</p>
-                <h1 class="name">Stephen Sam</h1>
-                <h2 class="title"><span class="typing-text"></span><span class="cursor">&nbsp;</span></h2>
-                <p class="tagline">Bridging the gap between Dev and Ops to build robust, scalable, and automated cloud infrastructure.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="https://stephensam.com/files/Stephen_Sam_SeniorCloud&Devops-Engineer.pdf" target="_blank" class="btn btn-secondary">
-                        <i class="fas fa-download"></i> Download Resume
+            <div class="container hero-grid">
+                <!-- Left Column: Engineer Identity & Up-To-Date Technical Edge -->
+                <div class="hero-copy scroll-reveal">
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span>SENIOR CLOUD, DEVOPS &amp; SRE ENGINEER · KERALA, INDIA</span>
+                    </div>
+
+                    <div class="identity-row">
+                        <div class="avatar-ring">
+                            <img src="images/profile.png" alt="Stephen Sam" class="avatar-img" onerror="this.src='images/about-image.jpeg'">
+                        </div>
+                        <div class="identity-meta">
+                            <span class="mono-label">// HELLO WORLD, I'M</span>
+                            <h1 class="hero-name">Stephen Sam</h1>
+                        </div>
+                    </div>
+
+                    <h2 class="hero-headline">
+                        Building Resilient <span class="gradient-text">Cloud Infrastructure</span> &amp; Sharing Modern DevOps Knowledge.
+                    </h2>
+
+                    <div class="typing-line">
+                        <span class="prompt-symbol">$ stephen --role</span>
+                        <span class="typing-text" id="typingText"></span><span class="terminal-cursor"></span>
+                    </div>
+
+                    <p class="hero-description">
+                        Senior Cloud, DevOps &amp; Site Reliability Engineer specializing in <strong>AWS, Azure, Kubernetes, Terraform &amp; Observability</strong>. Outside of work, I actively research emerging cloud-native technologies—documenting hands-on tutorials on my <strong>YouTube channel</strong> and <strong>Medium blog</strong> to stay razor-sharp on modern stacks like IaC, Observability, and MLOps.
+                    </p>
+
+                    <div class="hero-ctas">
+                        <a href="#youtube" class="btn btn-yt-hero">
+                            <i class="fab fa-youtube"></i> My YouTube &amp; Tech Content
+                        </a>
+                        <a href="files/Stephen_Sam_SeniorCloud&Devops-Engineer.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="btn btn-ghost">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Proof-of-Work Telemetry Bar -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-val">L3 / Senior</span>
+                            <span class="stat-lbl">Production AWS, Azure &amp; SRE</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-val">Tech Creator</span>
+                            <span class="stat-lbl">YouTube &amp; Medium Contributors</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-val">RHCSA</span>
+                            <span class="stat-lbl">Certified Linux Specialist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Engineer Profile Terminal -->
+                <div class="hero-workbench scroll-reveal">
+                    <div class="workbench-card">
+                        <div class="workbench-header">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="workbench-tabs" role="tablist">
+                                <button class="wb-tab active" data-wb-tab="terminal" role="tab" aria-selected="true">
+                                    <i class="fas fa-terminal"></i> stephen@stephensam.com:~
+                                </button>
+                                <button class="wb-tab" data-wb-tab="arch" role="tab" aria-selected="false">
+                                    <i class="fas fa-sitemap"></i> continuous-learning.svg
+                                </button>
+                            </div>
+                            <span class="wb-status"><i class="fas fa-circle"></i> ONLINE</span>
+                        </div>
+
+                        <!-- Tab 1: Interactive Terminal -->
+                        <div class="workbench-body active" id="wb-terminal">
+                            <div class="terminal-shortcuts">
+                                <span class="shortcut-hint">Quick inspect:</span>
+                                <button class="cmd-chip active" data-cmd="profile">whoami</button>
+                                <button class="cmd-chip" data-cmd="youtube">youtube --topics</button>
+                                <button class="cmd-chip" data-cmd="experience">career --timeline</button>
+                                <button class="cmd-chip" data-cmd="skills">skills --matrix</button>
+                            </div>
+                            <div class="terminal-screen" id="terminalScreen" aria-live="polite">
+                                <!-- Populated dynamically by script.js -->
+                            </div>
+                            <form class="terminal-input-row" id="terminalForm" autocomplete="off">
+                                <span class="input-prompt">visitor@stephensam.com:~$</span>
+                                <input type="text" id="terminalInput" placeholder="Type help, whoami, youtube, experience, skills, clear..." aria-label="Terminal command input">
+                                <button type="submit" class="btn-run-cmd">Run <i class="fas fa-level-down-alt fa-rotate-90"></i></button>
+                            </form>
+                        </div>
+
+                        <!-- Tab 2: How Content Creation Sharpens My Production Engineering -->
+                        <div class="workbench-body" id="wb-arch">
+                            <div class="arch-canvas">
+                                <div class="arch-header-bar">
+                                    <span class="arch-title"><i class="fas fa-bolt"></i> Always Up-To-Date Engineering Loop</span>
+                                    <span class="arch-tag">Hands-On Mastery</span>
+                                </div>
+                                <div class="arch-flow">
+                                    <div class="arch-node node-git">
+                                        <i class="fas fa-server"></i>
+                                        <strong>1. Production Work</strong>
+                                        <span>AWS · Azure · K8s · L3 Triage</span>
+                                    </div>
+                                    <div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+                                    <div class="arch-node node-cloud">
+                                        <i class="fas fa-flask"></i>
+                                        <strong>2. Deep Research</strong>
+                                        <span>Observability · IaC · MLOps</span>
+                                    </div>
+                                    <div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+                                    <div class="arch-node node-obs">
+                                        <i class="fab fa-youtube"></i>
+                                        <strong>3. Share &amp; Document</strong>
+                                        <span>YouTube &amp; Medium Guides</span>
+                                    </div>
+                                </div>
+                                <div class="arch-callout">
+                                    <div class="arch-callout-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <div>
+                                        <h4>Why I Create Technical Videos &amp; Articles</h4>
+                                        <p>Creating deep-dive DevOps &amp; SRE walkthroughs forces me to test edge cases, stay current with the latest cloud-native tools, and bring clear documentation habits to my day-to-day engineering team.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 01: ABOUT ME & CREDENTIALS -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header-row scroll-reveal">
+                    <div>
+                        <span class="section-eyebrow"><i class="fas fa-user-shield"></i> 01 // ABOUT ME</span>
+                        <h2 class="section-title">Senior DevOps &amp; SRE Engineer Who Stays Ahead of the Curve</h2>
+                    </div>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Main Narrative Card -->
+                    <div class="bento-card bento-story scroll-reveal">
+                        <div class="bento-tag"><i class="fas fa-terminal"></i> ABOUT_STEPHEN.MD</div>
+                        <h3>Bridging Development and Operations with Modern Automation</h3>
+                        <p>
+                            Hello! I'm <strong>Stephen Sam</strong>, a DevOps and Site Reliability Engineer passionate about building scalable, resilient, and high-performing systems. My journey in tech is driven by a deep commitment to cloud automation, system reliability, and continuous technical growth.
+                        </p>
+                        <p>
+                            With a strong foundation in enterprise Linux (<strong>RHCSA Certified</strong>) and modern DevOps practices, I specialize in designing automated CI/CD workflows, improving system observability, and maintaining high uptime through proactive monitoring and L3 incident response across <strong>AWS, Microsoft Azure, Kubernetes, and Terraform</strong>.
+                        </p>
+                        <p>
+                            To stay constantly updated with fast-evolving cloud and AI infrastructure ecosystems, I document my hands-on experiments and create in-depth technical content on <strong>YouTube (Stephen Sam DevOps Malayalam)</strong> and <strong>Medium</strong>—covering topics from Terraform and Observability to MLOps.
+                        </p>
+
+                        <div class="philosophy-pills">
+                            <span><i class="fas fa-check"></i> Production-First Mindset</span>
+                            <span><i class="fas fa-check"></i> Up-To-Date on Cloud &amp; MLOps</span>
+                            <span><i class="fas fa-check"></i> Strong Documentation &amp; Mentorship</span>
+                        </div>
+                    </div>
+
+                    <!-- Photo Card -->
+                    <div class="bento-card bento-photo scroll-reveal">
+                        <img src="images/about-image.jpeg" alt="Stephen Sam working on cloud infrastructure" class="bento-img">
+                        <div class="bento-photo-overlay">
+                            <span class="location-tag"><i class="fas fa-location-dot"></i> Kochi / Thiruvananthapuram, Kerala</span>
+                            <p>"Continuous hands-on learning is the key to reliable production engineering."</p>
+                        </div>
+                    </div>
+
+                    <!-- Certifications Bento Card -->
+                    <div class="bento-card bento-certs scroll-reveal">
+                        <div class="bento-tag"><i class="fas fa-certificate"></i> CERTIFICATIONS</div>
+                        <h3>Verified Credentials</h3>
+                        <div class="cert-list">
+                            <div class="cert-item">
+                                <img src="images/rhcsa.webp" alt="Red Hat Certified System Administrator" class="cert-thumb">
+                                <div class="cert-info">
+                                    <span class="cert-badge verified"><i class="fas fa-circle-check"></i> Certified</span>
+                                    <h4>Red Hat Certified System Administrator (RHCSA)</h4>
+                                    <p>Enterprise Linux Administration, Security, Storage &amp; System Triage</p>
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <img src="images/azure-administrator-associate-1.webp" alt="Microsoft Certified Azure Administrator Associate" class="cert-thumb">
+                                <div class="cert-info">
+                                    <span class="cert-badge pursuing"><i class="fas fa-spinner fa-spin"></i> Pursuing</span>
+                                    <h4>Microsoft Certified: Azure Administrator Associate</h4>
+                                    <p>AZ-104 · Identity, Governance, Storage, Compute &amp; Virtual Networks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- How My Content Creation Benefits Engineering Teams -->
+                    <div class="bento-card bento-vision scroll-reveal">
+                        <div class="bento-tag"><i class="fas fa-microchip"></i> CONTINUOUS UPSKILLING</div>
+                        <h3>Why I Share What I Learn</h3>
+                        <p>
+                            Technology moves fast. Creating technical videos and engineering articles in my spare time keeps my hands-on skills sharp across the latest DevOps, Observability, and MLOps tools—allowing me to bring fresh, battle-tested solutions and clear knowledge-sharing to my team.
+                        </p>
+                        <div class="vision-links">
+                            <a href="#youtube" class="btn btn-primary btn-sm">
+                                <i class="fab fa-youtube"></i> Explore My Content
+                            </a>
+                            <a href="#experience" class="btn btn-ghost btn-sm">
+                                <i class="fas fa-briefcase"></i> Work Experience
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 02: MAIN HIGHLIGHT — YOUTUBE CHANNEL & TECHNICAL CONTENT CREATION -->
+        <section id="youtube" class="section youtube-highlight-section">
+            <div class="container">
+                <div class="section-header-row scroll-reveal">
+                    <div>
+                        <span class="section-eyebrow"><i class="fab fa-youtube"></i> 02 // TECHNICAL CONTENT CREATION &amp; CONTRIBUTIONS</span>
+                        <h2 class="section-title">YouTube Channel &amp; Engineering Guides</h2>
+                        <p class="section-subtitle">Demonstrating hands-on mastery and staying updated on modern DevOps, SRE, Infrastructure as Code, and MLOps through practical video series and technical writing.</p>
+                    </div>
+                </div>
+
+                <!-- Featured YouTube Channel Banner -->
+                <div class="yt-spotlight-banner scroll-reveal">
+                    <div class="yt-spotlight-left">
+                        <span class="yt-live-badge"><i class="fab fa-youtube"></i> YOUTUBE CHANNEL · DEVOPS &amp; SRE CONTENT CREATOR</span>
+                        <h2>Stephen Sam <span class="gradient-text">DevOps Malayalam</span></h2>
+                        <p>
+                            On my YouTube channel, I break down complex cloud-native architectures and modern SRE tooling into practical, step-by-step <strong>"Zero to Hero"</strong> video series in Malayalam—covering live terminal demos, system architecture, and production best practices.
+                        </p>
+                        <div class="yt-banner-metrics">
+                            <span><i class="fas fa-chart-line"></i> Observability &amp; Monitoring</span>
+                            <span><i class="fas fa-cubes"></i> Terraform &amp; Multi-Cloud IaC</span>
+                            <span><i class="fas fa-brain"></i> MLOps &amp; Modern Pipelines</span>
+                        </div>
+                    </div>
+                    <div class="yt-spotlight-right">
+                        <a href="https://www.youtube.com/@stephen.sam13" target="_blank" rel="noopener" class="btn btn-yt-hero">
+                            <i class="fab fa-youtube"></i> Watch on YouTube <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- YouTube Video Series Cards -->
+                <div class="tracks-grid">
+                    <!-- Series 1 -->
+                    <article class="track-card scroll-reveal">
+                        <div class="track-top">
+                            <span class="track-index">VIDEO SERIES 01</span>
+                            <span class="track-status status-live"><i class="fab fa-youtube"></i> Zero to Hero</span>
+                        </div>
+                        <div class="track-icon-box accent-emerald">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Observability &amp; Monitoring</h3>
+                        <p class="track-sub">Zero to Hero in Malayalam</p>
+                        <p class="track-desc">
+                            A comprehensive deep-dive into modern production observability stacks—implementing full-stack telemetry, custom dashboards, log aggregation, and alerting.
+                        </p>
+                        <div class="track-modules">
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> Prometheus &amp; Grafana Dashboards</div>
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> ELK Stack, Datadog &amp; CloudWatch</div>
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> Proactive Incident Alerting</div>
+                        </div>
+                        <div class="track-footer">
+                            <a href="https://www.youtube.com/@stephen.sam13" target="_blank" rel="noopener" class="track-btn">
+                                <i class="fas fa-play"></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Series 2 -->
+                    <article class="track-card featured-track scroll-reveal">
+                        <div class="track-top">
+                            <span class="track-index">VIDEO SERIES 02</span>
+                            <span class="track-status status-live"><i class="fab fa-youtube"></i> Zero to Hero</span>
+                        </div>
+                        <div class="track-icon-box accent-cyan">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <h3>Terraform (Infrastructure as Code)</h3>
+                        <p class="track-sub">Zero to Hero in Malayalam</p>
+                        <p class="track-desc">
+                            Hands-on Infrastructure as Code series demonstrating how to provision, version, and automate cloud architectures across AWS and Azure from scratch to advanced.
+                        </p>
+                        <div class="track-modules">
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> Declarative HCL, Providers &amp; State</div>
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> AWS S3 + CloudFront + ACM SSL</div>
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> Reusable Modules &amp; Azure Deployments</div>
+                        </div>
+                        <div class="track-footer">
+                            <a href="https://www.youtube.com/@stephen.sam13" target="_blank" rel="noopener" class="track-btn">
+                                <i class="fas fa-play"></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Series 3 -->
+                    <article class="track-card scroll-reveal">
+                        <div class="track-top">
+                            <span class="track-index">VIDEO SERIES 03</span>
+                            <span class="track-status status-ai"><i class="fab fa-youtube"></i> Cutting-Edge</span>
+                        </div>
+                        <div class="track-icon-box accent-violet">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>MLOps</h3>
+                        <p class="track-sub">Zero to Hero in Malayalam</p>
+                        <p class="track-desc">
+                            Exploring Machine Learning Operations—applying DevOps automation, containerization, CI/CD, and monitoring principles to modern AI/ML deployment pipelines.
+                        </p>
+                        <div class="track-modules">
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> MLOps Lifecycle &amp; Architecture</div>
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> Containerized Model Serving</div>
+                            <div class="module-pill"><i class="fas fa-check-circle"></i> Automated Model CI/CD &amp; Monitoring</div>
+                        </div>
+                        <div class="track-footer">
+                            <a href="https://www.youtube.com/@stephen.sam13" target="_blank" rel="noopener" class="track-btn">
+                                <i class="fas fa-play"></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Technical Articles Sub-section (Medium Proof of Work) -->
+                <div class="articles-subsection" id="articles">
+                    <div class="section-header-row scroll-reveal" style="margin-top: 4rem; margin-bottom: 2rem;">
+                        <div>
+                            <span class="section-eyebrow"><i class="fab fa-medium"></i> TECHNICAL WRITING</span>
+                            <h3 class="subsection-title">Featured Engineering Articles on Medium</h3>
+                        </div>
+                        <a href="https://medium.com/@stephensam13" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+                            <i class="fab fa-medium"></i> View Medium Profile <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="articles-grid">
+                        <!-- Article 1 -->
+                        <a href="https://medium.com/@stephensam13/host-a-static-html-site-on-s3-with-free-ssl-using-cloudfront-acm-terraform-fe303e660d85" target="_blank" rel="noopener" class="article-card scroll-reveal">
+                            <div class="article-thumb-wrap">
+                                <img src="images/html-hosting-s3-acm-cloudfront.webp" alt="CloudFront + ACM + Terraform" class="article-thumb">
+                                <span class="article-chip">AWS · TERRAFORM</span>
+                            </div>
+                            <div class="article-body">
+                                <h3>CloudFront + ACM + Terraform</h3>
+                                <p>End-to-end setup for hosting a static HTML site securely on AWS S3 with CDN and free SSL using Infrastructure as Code.</p>
+                                <div class="article-footer">
+                                    <span class="read-link">Read on Medium <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Article 2 -->
+                        <a href="https://medium.com/@stephensam13/my-first-dockerized-flask-app-from-zero-to-container-c14913a738e8" target="_blank" rel="noopener" class="article-card scroll-reveal">
+                            <div class="article-thumb-wrap">
+                                <img src="images/doker-flask-app.webp" alt="Deploy Dockerized Flask App" class="article-thumb">
+                                <span class="article-chip">DOCKER · PYTHON</span>
+                            </div>
+                            <div class="article-body">
+                                <h3>Deploy Dockerized Flask App</h3>
+                                <p>A step-by-step practical guide taking a Python Flask application from local code to a reproducible Docker container.</p>
+                                <div class="article-footer">
+                                    <span class="read-link">Read on Medium <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Article 3 -->
+                        <a href="https://medium.com/@stephensam13/deploy-your-html-portfolio-to-azure-with-terraform-a-step-by-step-guide-efc945b2384e" target="_blank" rel="noopener" class="article-card scroll-reveal">
+                            <div class="article-thumb-wrap">
+                                <img src="images/html-azstorage-terrafomr.webp" alt="Deploy to Azure with Terraform" class="article-thumb">
+                                <span class="article-chip">AZURE · TERRAFORM</span>
+                            </div>
+                            <div class="article-body">
+                                <h3>Deploy to Azure with Terraform</h3>
+                                <p>A comprehensive walkthrough automating the deployment of a static HTML portfolio to Microsoft Azure Storage via Terraform.</p>
+                                <div class="article-footer">
+                                    <span class="read-link">Read on Medium <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 03: WORK EXPERIENCE -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-header-row scroll-reveal">
+                    <div>
+                        <span class="section-eyebrow"><i class="fas fa-briefcase"></i> 03 // WORK EXPERIENCE</span>
+                        <h2 class="section-title">Professional Career Timeline</h2>
+                        <p class="section-subtitle">Hands-on production experience across Level 3 AWS infrastructure support, multi-cloud DevOps engineering, and Linux administration.</p>
+                    </div>
+                    <a href="files/Stephen_Sam_SeniorCloud&Devops-Engineer.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
+                        <i class="fas fa-download"></i> Full Resume (PDF)
                     </a>
                 </div>
-            </div>
-            <div class="hero-image scroll-reveal">
-                <div class="glow-circle"></div>
-                <div class="profile-frame">
-                    <img src="https://stephensam.com/images/about-image.jpeg" alt="Stephen Sam" class="profile-pic">
-                </div>
-                <div class="floating-icon icon-1"><i class="fab fa-aws"></i></div>
-                <div class="floating-icon icon-2"><i class="fab fa-docker"></i></div>
-                <div class="floating-icon icon-3"><i class="fas fa-dharmachakra"></i></div>
-            </div>
-        </section>
 
-        <!-- About Section -->
-        <section id="about" class="about section">
-            <div class="section-header scroll-reveal">
-                <h2>About Me<span class="highlight">.</span></h2>
-            </div>
-            <div class="about-content scroll-reveal glass-card p-xl">
-                <p>Hello! I'm Stephen Sam, a DevOps and Site Reliability Engineer passionate about building scalable, resilient, and high-performing systems. My journey in tech is driven by a deep interest in automation, cloud infrastructure, and ensuring reliability at scale.</p>
-                <p>With a strong foundation in Linux and modern DevOps practices, I specialize in designing efficient workflows, improving system observability, and maintaining uptime through proactive monitoring and incident response. I have hands-on experience with AWS and Azure, Kubernetes, and Infrastructure as Code using Terraform.</p>
-                <p>My goal is to bridge development and operations by implementing reliable, secure, and scalable systems that deliver real-world impact with minimal downtime.</p>
-            </div>
-        </section>
+                <div class="exp-timeline">
+                    <!-- Role 1 -->
+                    <div class="exp-item scroll-reveal">
+                        <div class="exp-marker current"></div>
+                        <div class="exp-card">
+                            <div class="exp-meta">
+                                <span class="exp-date"><i class="far fa-calendar-check"></i> Jan 2026 – Present</span>
+                                <span class="exp-loc"><i class="fas fa-location-dot"></i> Kochi, Kerala · Remote</span>
+                                <span class="exp-badge active-role">CURRENT ROLE</span>
+                            </div>
+                            <h3>Level 3 AWS Infrastructure Support Engineer</h3>
+                            <h4>Electronikmedia (EM)</h4>
+                            <p>
+                                Providing advanced L3 support for AWS infrastructure, driving DevOps practices, resolving complex production escalations, and optimizing cloud environments for performance and reliability.
+                            </p>
+                            <div class="exp-tags">
+                                <span>AWS L3 Infrastructure</span>
+                                <span>Incident Escalation &amp; RCA</span>
+                                <span>DevOps Automation</span>
+                                <span>Cloud Reliability</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills section">
-            <div class="section-header scroll-reveal">
-                <h2>Technical Skills<span class="highlight">.</span></h2>
-            </div>
-            <div class="skills-grid">
-                <!-- Skill Category 1 -->
-                <div class="premium-skill-card scroll-reveal">
-                    <div class="skill-icon-wrapper"><i class="fas fa-cloud"></i></div>
-                    <h3>Cloud Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS </span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">Google Cloud</span>
+                    <!-- Role 2 -->
+                    <div class="exp-item scroll-reveal">
+                        <div class="exp-marker"></div>
+                        <div class="exp-card">
+                            <div class="exp-meta">
+                                <span class="exp-date"><i class="far fa-calendar"></i> Jul 2022 – Jan 2026</span>
+                                <span class="exp-loc"><i class="fas fa-location-dot"></i> Thiruvananthapuram, Kerala · Hybrid</span>
+                                <span class="exp-badge">3.5 YEARS</span>
+                            </div>
+                            <h3>Senior Cloud &amp; DevOps Engineer</h3>
+                            <h4>Grozeo India</h4>
+                            <p>
+                                Managed cloud infrastructure across AWS and Azure for development, UAT, and production environments, ensuring high availability, automated CI/CD delivery, and scalability.
+                            </p>
+                            <div class="exp-tags">
+                                <span>AWS &amp; Azure</span>
+                                <span>Terraform IaC</span>
+                                <span>CI/CD Pipelines</span>
+                                <span>Docker &amp; Kubernetes</span>
+                                <span>Observability</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Skill Category 2 -->
-                <div class="premium-skill-card scroll-reveal" style="transition-delay: 100ms;">
-                    <div class="skill-icon-wrapper"><i class="fas fa-sync"></i></div>
-                    <h3>CI/CD & Automation</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">GitLab CI</span>
-                        <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">Azure Pipelines</span>
-                    </div>
-                </div>
-                <!-- Skill Category 3 -->
-                <div class="premium-skill-card scroll-reveal" style="transition-delay: 200ms;">
-                    <div class="skill-icon-wrapper"><i class="fab fa-docker"></i></div>
-                    <h3>Containers & Orchestration</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes (K8s)</span>
-                    </div>
-                </div>
-                <!-- Skill Category 4 -->
-                <div class="premium-skill-card scroll-reveal" style="transition-delay: 300ms;">
-                    <div class="skill-icon-wrapper"><i class="fas fa-code"></i></div>
-                    <h3>Infrastructure as Code</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">CloudFormation</span>
-                    </div>
-                </div>
-                <!-- Skill Category 5 -->
-                <div class="premium-skill-card scroll-reveal" style="transition-delay: 400ms;">
-                    <div class="skill-icon-wrapper"><i class="fas fa-chart-line"></i></div>
-                    <h3>Monitoring & Logging</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Prometheus</span>
-                        <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">ELK Stack</span>
-                        <span class="skill-tag">CloudWatch</span>
-                         <span class="skill-tag">Datadog</span>
-                    </div>
-                </div>
-                <!-- Skill Category 6 -->
-                <div class="premium-skill-card scroll-reveal" style="transition-delay: 500ms;">
-                    <div class="skill-icon-wrapper"><i class="fas fa-terminal"></i></div>
-                    <h3>Scripting & System</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Linux Admin</span>
-                        <span class="skill-tag">Networking</span>
-                        <span class="skill-tag">Security</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="experience section">
-            <div class="section-header scroll-reveal">
-                <h2>Experience<span class="highlight">.</span></h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item scroll-reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date">Jan 2026 – Present (Kochi, Kerala &middot; Remote)</div>
-                        <h3>Level 3 AWS Infrastructure Support Engineer</h3>
-                        <h4>Electronikmedia (EM)</h4>
-                        <p>Providing advanced L3 support for AWS infrastructure, driving DevOps practices, and optimizing cloud environments for performance and reliability.</p>
+                    <!-- Role 3 -->
+                    <div class="exp-item scroll-reveal">
+                        <div class="exp-marker"></div>
+                        <div class="exp-card">
+                            <div class="exp-meta">
+                                <span class="exp-date"><i class="far fa-calendar"></i> Mar 2020 – Jun 2022</span>
+                                <span class="exp-loc"><i class="fas fa-location-dot"></i> Thiruvananthapuram, Kerala · On-site</span>
+                                <span class="exp-badge">2+ YEARS</span>
+                            </div>
+                            <h3>Senior System Administrator</h3>
+                            <h4>Sherji Technologies Pvt Ltd</h4>
+                            <p>
+                                Managed and maintained Linux-based servers (CentOS, Ubuntu), including LAMP stacks and custom web hosting environments, ensuring high uptime and performance.
+                            </p>
+                            <div class="exp-tags">
+                                <span>CentOS &amp; Ubuntu</span>
+                                <span>LAMP Stack</span>
+                                <span>Bash Automation</span>
+                                <span>Server Hardening</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item scroll-reveal" style="transition-delay: 100ms;">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date">Jul 2022 – Jan 2026 (Thiruvananthapuram, Kerala &middot; Hybrid)</div>
-                        <h3>Senior Cloud & DevOps Engineer</h3>
-                        <h4>Grozeo India</h4>
-                        <p>Managed cloud infrastructure across AWS and Azure for development, UAT, and production environments, ensuring high availability and scalability.</p>
-                    </div>
-                </div>
-                <div class="timeline-item scroll-reveal" style="transition-delay: 200ms;">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date">Mar 2020 – Jun 2022 (Thiruvananthapuram, Kerala &middot; On-site)</div>
-                        <h3>Senior System Administrator</h3>
-                        <h4>Sherji Technologies Pvt Ltd</h4>
-                        <p>Managed and maintained Linux-based servers (CentOS, Ubuntu), including LAMP stacks and custom web hosting environments, ensuring high uptime and performance.</p>
-                    </div>
-                </div>
-                <div class="timeline-item scroll-reveal" style="transition-delay: 300ms;">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date">Jun 2017 – May 2018 (Kochi, Kerala &middot; Remote)</div>
-                        <h3>Linux Administrator</h3>
-                        <h4>Integralhost</h4>
-                        <p>Delivered L1 support to clients for VPS and shared hosting environments. Assisted with WHM/cPanel troubleshooting, DNS setup, and SSL configurations.</p>
+
+                    <!-- Role 4 -->
+                    <div class="exp-item scroll-reveal">
+                        <div class="exp-marker"></div>
+                        <div class="exp-card">
+                            <div class="exp-meta">
+                                <span class="exp-date"><i class="far fa-calendar"></i> Jun 2017 – May 2018</span>
+                                <span class="exp-loc"><i class="fas fa-location-dot"></i> Kochi, Kerala · Remote</span>
+                                <span class="exp-badge">FOUNDATION</span>
+                            </div>
+                            <h3>Linux Administrator</h3>
+                            <h4>Integralhost</h4>
+                            <p>
+                                Delivered L1 support to clients for VPS and shared hosting environments. Assisted with WHM/cPanel troubleshooting, DNS setup, and SSL configurations.
+                            </p>
+                            <div class="exp-tags">
+                                <span>Linux VPS</span>
+                                <span>WHM / cPanel</span>
+                                <span>DNS &amp; SSL</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects & Certs Section -->
-        <section id="projects" class="projects section">
-            <div class="section-header scroll-reveal" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
-                <h2 style="margin: 0;">Featured Articles<span class="highlight">.</span></h2>
-                <a href="https://medium.com/@stephensam13" target="_blank" class="section-link">View Medium <i class="fas fa-external-link-alt"></i></a>
-            </div>
-            <div class="projects-grid">
-                <a href="https://medium.com/@stephensam13/host-a-static-html-site-on-s3-with-free-ssl-using-cloudfront-acm-terraform-fe303e660d85" target="_blank" class="project-card glass-card scroll-reveal">
-                    <div class="card-inner">
-                        <div class="project-icon"><i class="fab fa-medium"></i></div>
-                        <h3>CloudFront + ACM + Terraform</h3>
-                        <p>End-to-end setup for hosting a static HTML site securely on AWS S3 with CDN and SSL using IaC.</p>
-                        <span class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></span>
+        <!-- SECTION 04: TECHNICAL SKILLS MATRIX -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-header-row scroll-reveal">
+                    <div>
+                        <span class="section-eyebrow"><i class="fas fa-layer-group"></i> 04 // TECHNICAL SKILLS</span>
+                        <h2 class="section-title">Production Engineering Stack</h2>
+                        <p class="section-subtitle">Core technologies I use to architect, automate, and observe cloud infrastructure.</p>
                     </div>
-                </a>
-                <a href="https://medium.com/@stephensam13/my-first-dockerized-flask-app-from-zero-to-container-c14913a738e8" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 100ms;">
-                    <div class="card-inner">
-                        <div class="project-icon"><i class="fab fa-medium"></i></div>
-                        <h3>Deploy Dockerized Flask App</h3>
-                        <p>A beginner’s step-by-step journey from zero to a fully containerized Flask application using Docker.</p>
-                        <span class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <a href="https://medium.com/@stephensam13/deploy-your-html-portfolio-to-azure-with-terraform-a-step-by-step-guide-efc945b2384e" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 200ms;">
-                    <div class="card-inner">
-                        <div class="project-icon"><i class="fab fa-medium"></i></div>
-                        <h3>Deploy to Azure with Terraform</h3>
-                        <p>A comprehensive guide to automating the deployment of an HTML portfolio to Azure Storage via Terraform.</p>
-                        <span class="read-more">Read on Medium <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-            </div>
+                </div>
 
-            <div class="section-header scroll-reveal mt-xl" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
-                <h2 style="margin: 0;">YouTube Content<span class="highlight">.</span></h2>
-                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="section-link">Stephen Sam DevOps Malayalam <i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="projects-grid">
-                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="project-card glass-card scroll-reveal">
-                    <div class="card-inner">
-                        <div class="project-icon" style="color: #ff0000;"><i class="fab fa-youtube"></i></div>
-                        <h3>Observability & Monitoring</h3>
-                        <p>Zero to Hero in Malayalam. A comprehensive guide to modern observability stacks.</p>
-                        <span class="read-more">Watch on YouTube <i class="fas fa-play"></i></span>
+                <div class="skills-grid">
+                    <!-- Category 1 -->
+                    <div class="skill-card scroll-reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                            <div>
+                                <span class="skill-code">01 / CLOUD</span>
+                                <h3>Cloud Platforms</h3>
+                            </div>
+                        </div>
+                        <p class="skill-context">Multi-cloud infrastructure design, high-availability VPCs, CDN edge security, and cost optimization.</p>
+                        <div class="skill-pills">
+                            <span class="s-pill primary"><i class="fab fa-aws"></i> AWS</span>
+                            <span class="s-pill primary"><i class="fab fa-microsoft"></i> Azure</span>
+                            <span class="s-pill"><i class="fab fa-google"></i> Google Cloud</span>
+                        </div>
                     </div>
-                </a>
-                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 100ms;">
-                    <div class="card-inner">
-                        <div class="project-icon" style="color: #ff0000;"><i class="fab fa-youtube"></i></div>
-                        <h3>Terraform</h3>
-                        <p>Zero to Hero in Malayalam. Learn Infrastructure as Code from scratch to advanced.</p>
-                        <span class="read-more">Watch on YouTube <i class="fas fa-play"></i></span>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/channel/UC6kwCmSeOAdUiPybAEShL8g" target="_blank" class="project-card glass-card scroll-reveal" style="transition-delay: 200ms;">
-                    <div class="card-inner">
-                        <div class="project-icon" style="color: #ff0000;"><i class="fab fa-youtube"></i></div>
-                        <h3>MLOPS</h3>
-                        <p>Zero to Hero in Malayalam. Dive into Machine Learning Operations.</p>
-                        <span class="read-more">Watch on YouTube <i class="fas fa-play"></i></span>
-                    </div>
-                </a>
-            </div>
 
-            <div class="certs-container scroll-reveal mt-xl">
-                <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Certifications</h3>
-                <div class="tags cert-tags">
-                    <span class="tag cert"><i class="fas fa-certificate"></i> Red Hat Certified System Administrator (RHCSA)</span>
-                    <span class="tag cert pursuing"><i class="fas fa-spinner fa-spin"></i> Microsoft Certified: Azure Administrator Associate (Pursuing)</span>
+                    <!-- Category 2 -->
+                    <div class="skill-card scroll-reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon"><i class="fas fa-sync"></i></div>
+                            <div>
+                                <span class="skill-code">02 / CI-CD</span>
+                                <h3>CI/CD &amp; Automation</h3>
+                            </div>
+                        </div>
+                        <p class="skill-context">Automated build, test, and zero-downtime deployment pipelines across modern Git workflows.</p>
+                        <div class="skill-pills">
+                            <span class="s-pill primary"><i class="fab fa-jenkins"></i> Jenkins</span>
+                            <span class="s-pill primary"><i class="fab fa-gitlab"></i> GitLab CI</span>
+                            <span class="s-pill primary"><i class="fab fa-github"></i> GitHub Actions</span>
+                            <span class="s-pill"><i class="fas fa-infinity"></i> Azure Pipelines</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="skill-card scroll-reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                            <div>
+                                <span class="skill-code">03 / CONTAINERS</span>
+                                <h3>Containers &amp; Orchestration</h3>
+                            </div>
+                        </div>
+                        <p class="skill-context">Microservice containerization, multi-stage builds, and resilient Kubernetes cluster management.</p>
+                        <div class="skill-pills">
+                            <span class="s-pill primary"><i class="fab fa-docker"></i> Docker</span>
+                            <span class="s-pill primary"><i class="fas fa-dharmachakra"></i> Kubernetes (K8s)</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="skill-card scroll-reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <div>
+                                <span class="skill-code">04 / IAC</span>
+                                <h3>Infrastructure as Code</h3>
+                            </div>
+                        </div>
+                        <p class="skill-context">Declarative multi-cloud provisioning, remote state locking, reusable modules, and drift detection.</p>
+                        <div class="skill-pills">
+                            <span class="s-pill primary"><i class="fas fa-cubes"></i> Terraform</span>
+                            <span class="s-pill"><i class="fas fa-layer-group"></i> CloudFormation</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 5 -->
+                    <div class="skill-card scroll-reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <span class="skill-code">05 / OBSERVABILITY</span>
+                                <h3>Monitoring &amp; Logging</h3>
+                            </div>
+                        </div>
+                        <p class="skill-context">Full-stack metrics, centralized logging, custom Grafana dashboards, and proactive incident alerting.</p>
+                        <div class="skill-pills">
+                            <span class="s-pill primary"><i class="fas fa-fire"></i> Prometheus</span>
+                            <span class="s-pill primary"><i class="fas fa-chart-pie"></i> Grafana</span>
+                            <span class="s-pill"><i class="fas fa-magnifying-glass-chart"></i> ELK Stack</span>
+                            <span class="s-pill"><i class="fab fa-aws"></i> CloudWatch</span>
+                            <span class="s-pill"><i class="fas fa-dog"></i> Datadog</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 6 -->
+                    <div class="skill-card scroll-reveal">
+                        <div class="skill-card-head">
+                            <div class="skill-icon"><i class="fas fa-terminal"></i></div>
+                            <div>
+                                <span class="skill-code">06 / SYSTEMS &amp; MLOPS</span>
+                                <h3>Scripting, System &amp; MLOps</h3>
+                            </div>
+                        </div>
+                        <p class="skill-context">Hardened Linux administration, Bash automation, networking/security, and modern MLOps workflows.</p>
+                        <div class="skill-pills">
+                            <span class="s-pill primary"><i class="fas fa-terminal"></i> Bash</span>
+                            <span class="s-pill primary"><i class="fab fa-linux"></i> Linux Admin</span>
+                            <span class="s-pill"><i class="fas fa-network-wired"></i> Networking &amp; Security</span>
+                            <span class="s-pill"><i class="fas fa-brain"></i> MLOps</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-            <div class="section-header scroll-reveal">
-                <h2>Get In Touch<span class="highlight">.</span></h2>
-            </div>
-            <div class="contact-content glass-card scroll-reveal">
-                <p>Have a project in mind, a question, or just want to connect? My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                <div class="social-links mt-l">
-                    <a href="mailto:stephensam13@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email Me</a>
-                    <a href="https://www.linkedin.com/in/stephen-sam-a47949376/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                    <a href="https://github.com/stephensam-13" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+        <!-- SECTION 05: CONTACT -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-box scroll-reveal">
+                    <div class="contact-glow" aria-hidden="true"></div>
+                    <span class="section-eyebrow"><i class="fas fa-paper-plane"></i> 05 // GET IN TOUCH</span>
+                    <h2>Let's Connect.</h2>
+                    <p>
+                        Have an engineering opportunity, a project in mind, or just want to connect? My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                    </p>
+
+                    <div class="contact-actions">
+                        <a href="mailto:stephensam13@gmail.com" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/stephen-sam-a47949376/" target="_blank" rel="noopener" class="btn btn-terminal">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                        <a href="https://www.youtube.com/@stephen.sam13" target="_blank" rel="noopener" class="btn btn-yt-outline">
+                            <i class="fab fa-youtube"></i> YouTube Channel
+                        </a>
+                        <a href="https://github.com/stephensam-13" target="_blank" rel="noopener" class="btn btn-ghost">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://medium.com/@stephensam13" target="_blank" rel="noopener" class="btn btn-ghost">
+                            <i class="fab fa-medium"></i> Medium
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="glass mt-xl">
-        <p>&copy; 2026 Stephen Sam. Designed & Built with &#10084; using HTML, CSS & Vanilla JS.</p>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <div class="ss-emblem ss-emblem-sm" aria-hidden="true">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1.5" y="1.5" width="41" height="41" rx="11" fill="#0b1120" stroke="#10b981" stroke-width="2" />
+                        <path d="M19.5 14H13.5C11.8431 14 10.5 15.3431 10.5 17V18.5C10.5 20.1569 11.8431 21.5 13.5 21.5H17.5C19.1569 21.5 20.5 22.8431 20.5 24.5V27C20.5 28.6569 19.1569 30 17.5 30H10.5" stroke="#10b981" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M33.5 14H26.5C24.8431 14 23.5 15.3431 23.5 17V19.5C23.5 21.1569 24.8431 22.5 26.5 22.5H30.5C32.1569 22.5 33.5 23.8431 33.5 25.5V27C33.5 28.6569 32.1569 30 30.5 30H24.5" stroke="#06b6d4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <strong>StephenSam</strong>
+                <span class="footer-sep">·</span>
+                <span>Senior Cloud, DevOps &amp; SRE Engineer</span>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#youtube">YouTube &amp; Articles</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="files/Stephen_Sam_SeniorCloud&Devops-Engineer.pdf" target="_blank" rel="noopener">Resume</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Stephen Sam. Designed &amp; Built using HTML, CSS &amp; Vanilla JS.</p>
+        </div>
     </footer>
 
-    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
